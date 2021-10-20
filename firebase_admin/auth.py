@@ -240,7 +240,10 @@ def create_session_cookie(id_token, expires_in, app=None):
     """
     client = _get_client(app)
     # pylint: disable=protected-access
-    return client._token_generator.create_session_cookie(id_token, expires_in, tenant_id=client.tenant_id)
+    return client._token_generator.create_session_cookie(
+        id_token,
+        expires_in,
+        tenant_id=client.tenant_id)
 
 
 def verify_session_cookie(session_cookie, check_revoked=False, app=None):
